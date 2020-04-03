@@ -1,5 +1,4 @@
-export * from './components';
-export * from './index';
+import 'monaco-editor/monaco';
 
 export type TextFieldTypes = 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'time';
 export type Side = 'start' | 'end';
@@ -24,3 +23,6 @@ export interface BackButtonEventDetail {
 export interface StyleEventDetail {
   [styleName: string]: boolean;
 }
+
+export * from './components';
+export * from './index';
