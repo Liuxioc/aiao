@@ -1,5 +1,6 @@
 import { IImageStorage } from '@aiao/image-storage';
 
+import { Mode } from '../../interface';
 import { IDomSanitizer } from './context.interface';
 
 /**
@@ -14,6 +15,7 @@ export interface IAiaoContexts {
  * 配置
  */
 export interface IAiaoElementsConfig extends IAiaoContexts {
+  mode?: Mode;
   codeEditorBaseUrl?: string;
   animated?: boolean;
   resourcesUrl?: string;
