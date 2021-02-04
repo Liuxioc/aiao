@@ -29,7 +29,10 @@ export async function initializeStencilConfig(
   taskCommand: TaskCommand,
   options: StencilBuildOptions | StencilTestOptions,
   context: BuilderContext,
-  createStencilCompilerOptions: (taskCommand: TaskCommand, options: StencilBuildOptions) => ConfigFlags
+  createStencilCompilerOptions: (
+    taskCommand: TaskCommand,
+    options: StencilBuildOptions | StencilTestOptions
+  ) => ConfigFlags
 ) {
   const configFilePath = options.configPath;
 

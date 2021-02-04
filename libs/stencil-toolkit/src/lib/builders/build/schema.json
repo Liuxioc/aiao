@@ -5,7 +5,9 @@
     "configPath": {
       "type": "string"
     },
-
+    "outputPath": {
+      "type": "string"
+    },
     "docs": {
       "type": "boolean"
     },
@@ -22,7 +24,7 @@
     }
   },
   "additionalProperties": false,
-  "required": ["configPath"],
+  "required": ["configPath", "outputPath"],
 
   "definitions": {
     "assetPattern": {

@@ -224,7 +224,8 @@
         "build": {
           "builder": "@aiao/stencil-toolkit:build",
           "options": {
-            "configPath": "libs/elements/stencil.prod.config.ts"
+            "configPath": "libs/elements/stencil.prod.config.ts",
+            "outputPath": "dist/libs/elements"
           },
           "configurations": {
             "production": {}
