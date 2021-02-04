@@ -11,7 +11,7 @@ import { StencilBuildOptions } from '../builders/build/shcema';
 import { StencilTestOptions } from '../builders/test/schema';
 import { initializeStencilConfig } from '../util/initialize-stencil-config';
 import { calculateOutputTargetPathVariables } from './calculateOutputTargetPathVariables';
-import { copyOrCreatePackageJson } from './copyOrCreatePackageJson';
+import { copyLibFiles } from './copyLibFiles';
 import { ensureDirExist } from './file-utils';
 import { ConfigAndCoreCompiler, ConfigAndPathCollection } from './interface';
 
@@ -29,11 +29,9 @@ export function createStencilConfig(
   return from(initializeStencilConfig(taskCommand, options, context, createStencilCompilerOptions)).pipe(
     tap((values: ConfigAndPathCollection) => {
       ensureDirExist(values.distDir);
-
-      if (options.projectType === ProjectType.Library) {
-        copyOrCreatePackageJson(values);
+      if (values.projectType === ProjectType.Library) {
+        copyLibFiles(values);
       }
-
       return values.config;
     }),
     map((values: ConfigAndPathCollection) => {
@@ -70,7 +68,7 @@ export function createStencilConfig(
         values.config.rootDir = getSystemPath(values.distDir);
       }
 
-      const config = Object.assign(values.config, { outputTargets: outputTargets }, { devServer: devServerConfig });
+      const config = Object.assign(values.config, { outputTargets }, { devServer: devServerConfig });
 
       return {
         config: config,
