@@ -59,5 +59,5 @@ export const config: Config = {
 
   tsconfig: 'tsconfig.json',
   globalScript: 'src/lib/global/global.ts',
-  enableCache: true
+  enableCache: false
 };

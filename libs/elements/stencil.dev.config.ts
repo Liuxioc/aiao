@@ -5,6 +5,7 @@ export const config: Config = {
   autoprefixCss: true,
   namespace: 'aiao-elements',
   plugins: [sass()],
+  taskQueue: 'async',
   outputTargets: [
     {
       type: 'dist',
