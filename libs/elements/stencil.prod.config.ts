@@ -10,6 +10,7 @@ export const config: Config = {
   namespace: 'aiao-elements',
   taskQueue: 'async',
   plugins: [sass()],
+  buildEs5: 'prod',
   extras: {
     cssVarsShim: true,
     dynamicImportShim: true,
