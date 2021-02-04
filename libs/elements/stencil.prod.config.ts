@@ -8,7 +8,16 @@ const excludeComponents = ['aiao-text-editor-bar', 'aiao-tree-node', 'ion-icon']
 export const config: Config = {
   autoprefixCss: true,
   namespace: 'aiao-elements',
+  taskQueue: 'async',
   plugins: [sass()],
+  extras: {
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    initializeNextTick: true,
+    safari10: true,
+    scriptDataOpts: true,
+    shadowDomShim: true
+  },
   outputTargets: [
     {
       type: 'dist',
@@ -47,14 +56,7 @@ export const config: Config = {
     //   type: 'docs-readme'
     // }
   ],
-  extras: {
-    cssVarsShim: true,
-    dynamicImportShim: true,
-    initializeNextTick: true,
-    safari10: true,
-    scriptDataOpts: true,
-    shadowDomShim: true
-  },
+
   tsconfig: 'tsconfig.json',
   globalScript: 'src/lib/global/global.ts',
   enableCache: true
