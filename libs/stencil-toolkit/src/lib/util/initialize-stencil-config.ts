@@ -63,12 +63,14 @@ export async function initializeStencilConfig(
   const projectName: string = context.target?.project || '';
   const distDir: Path = normalize(`${workspaceRoot}/dist/${metadata.root}`);
   const projectRoot: Path = normalize(`${workspaceRoot}/${metadata.root}`);
+  const projectMeta = await context.getProjectMetadata(projectName);
 
   return {
     projectName: projectName,
     config: loadConfigResults.config,
     projectRoot: getSystemPath(projectRoot),
     coreCompiler: coreCompiler,
+    projectType: projectMeta.projectType,
     distDir: getSystemPath(distDir),
     pkgJson: getSystemPath(join(projectRoot, `package.json`))
   } as ConfigAndPathCollection;
